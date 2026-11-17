@@ -84,7 +84,6 @@ pregunta --> embedding con el MISMO modelo --> 6 fragmentos más cercanos
 | `indexar.py` | Construye el índice e imprime qué se cargó, para poder inspeccionarlo. |
 | `app.py` | Interfaz Gradio. Llama a `rag.responder()`; no implementa un sistema aparte. |
 | `pruebas.py` | Corre los 7 casos y escribe `pruebas/resultados.md`. |
-| `calibracion.py` | Los experimentos que justifican el tamaño de fragmento y el valor de `k`. |
 | `scrapers/` | Descarga de los PDF de la FIP y scraping del historial de Wikipedia. |
 
 Modelos locales vía Ollama: **`bge-m3`** para embeddings y **`granite4:latest`**
@@ -190,8 +189,8 @@ Corrida del 15/11/2026: **5 de 5** respondibles recuperaron la fuente esperada y
 **Fragmentos de 1200 caracteres con 200 de solapamiento.** El artículo 1 de la
 normativa de elegibilidad enumera cuatro condiciones que hay que cumplir
 *todas*. Si el corte separa la última del encabezado que lo aclara, el fragmento
-deja de ser evidencia: se lee como una regla suelta. Reproducible con
-`python calibracion.py`:
+deja de ser evidencia: se lee como una regla suelta. Al probar tres cortes
+sobre ese mismo PDF:
 
 | chunk_size / overlap | ¿La condición viaja con su encabezado? |
 |---|---|
@@ -205,10 +204,10 @@ menos de 60 caracteres, porque el splitter dejaba aislados títulos de sección
 sueltos que no son evidencia de nada.
 
 **k = 6.** El piso lo marcó R1, donde el fragmento con la respuesta quedó
-tercero: con `k` de 1 o 2 esa pregunta fallaba. El techo lo marcó el
-experimento de calibración: pasar de 6 a 10 no trae fuentes nuevas, trae más
-pedazos del mismo artículo. En la interfaz es ajustable para inspeccionar el
-efecto.
+tercero: con `k` de 1 o 2 esa pregunta fallaba. El techo se vio consultando el
+índice con k de 3, 6 y 10: pasar de 6 a 10 no trae fuentes nuevas, trae más
+pedazos del mismo artículo de Wikipedia. En la interfaz `k` es ajustable, para
+poder inspeccionar ese efecto.
 
 **Granularidad del corpus histórico.** El JSON no se indexa como un bloque: se
 generan documentos separados por edición (35), por palmarés de país (23) y por
@@ -247,16 +246,15 @@ el contexto literal: la verificación final la hace quien consulta.
 Usé **Claude Code** como asistente durante el desarrollo: para
 relevar qué documentos públicos sobre los Mundiales eran redistribuibles,
 escribir los scrapers y el código del pipeline a partir de los cuadernos que usamos
-a lo largo de la cursada, y redacte esta documentación.
+a lo largo de la cursada, y redactar esta documentación.
 
 La definición del caso y del destinatario, la elección de los cinco documentos
 del corpus y la redacción de los siete casos de prueba fueron decisiones mías.
 
-Verifique los PDF en las páginas que el sistema cita —composición de equipos (pág. 6),
+Verifiqué los PDF en las páginas que el sistema cita —composición de equipos (pág. 6),
 dimensiones de la pista (pág. 5) y elegibilidad (pág. 1)— y las comparé con los 
 fragmentos recuperados; contrasté la salida del scraper contra las tablas del artículo de Wikipedia;
-y ejecuté el proyecto completo, incluidos los experimentos de calibración y los siete casos
-de prueba. Los resultados de `pruebas/resultados.md` son ejecuciones reales en
+y ejecuté el proyecto completo, corriendo los siete casos de prueba. Los resultados de `pruebas/resultados.md` son ejecuciones reales en
 mi máquina, generadas por el propio script.
 
 ---
