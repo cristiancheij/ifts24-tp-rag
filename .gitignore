@@ -1,0 +1,11 @@
+# Entorno virtual
+.venv/
+__pycache__/
+*.pyc
+
+# Índice vectorial generado: se reconstruye con `python indexar.py`
+chroma_db/
+
+# Secretos y configuración local
+.env
+*.key
