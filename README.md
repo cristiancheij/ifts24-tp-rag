@@ -244,19 +244,18 @@ el contexto literal: la verificación final la hace quien consulta.
 
 ## 8. Uso de IA
 
-Usé **Claude Code (Anthropic)** como asistente durante el desarrollo: para
+Usé **Claude Code** como asistente durante el desarrollo: para
 relevar qué documentos públicos sobre los Mundiales eran redistribuibles,
-escribir los scrapers y el código del pipeline a partir de los cuadernos de la
-unidad 014, y redactar esta documentación.
+escribir los scrapers y el código del pipeline a partir de los cuadernos que usamos
+a lo largo de la cursada, y redacte esta documentación.
 
 La definición del caso y del destinatario, la elección de los cinco documentos
 del corpus y la redacción de los siete casos de prueba fueron decisiones mías.
 
-**Qué verifiqué personalmente:** abrí los PDF en las páginas que el sistema cita
-—composición de equipos (pág. 6), dimensiones de la pista (pág. 5) y
-elegibilidad (pág. 1)— y las comparé con los fragmentos recuperados; contrasté
-la salida del scraper contra las tablas del artículo de Wikipedia; y ejecuté el
-proyecto completo, incluidos los experimentos de calibración y los siete casos
+Verifique los PDF en las páginas que el sistema cita —composición de equipos (pág. 6),
+dimensiones de la pista (pág. 5) y elegibilidad (pág. 1)— y las comparé con los 
+fragmentos recuperados; contrasté la salida del scraper contra las tablas del artículo de Wikipedia;
+y ejecuté el proyecto completo, incluidos los experimentos de calibración y los siete casos
 de prueba. Los resultados de `pruebas/resultados.md` son ejecuciones reales en
 mi máquina, generadas por el propio script.
 
@@ -272,4 +271,3 @@ mi máquina, generadas por el propio script.
 └── scrapers/     descarga de los PDF y scraping de Wikipedia
 ```
 
-No se publican `.venv/`, `.env`, credenciales ni el índice vectorial generado.
