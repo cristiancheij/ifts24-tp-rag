@@ -1,7 +1,9 @@
 # RAG sobre los Campeonatos Mundiales de Pádel
 
 **Autor:** Cristian Cheij
+
 **Materia:** Laboratorio de PLN: Analítica, Textos y Cultura — IFTS N.º 24
+
 **Trabajo Integrador 2** — 16 de noviembre de 2026
 
 ---
