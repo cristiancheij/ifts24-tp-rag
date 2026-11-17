@@ -261,13 +261,4 @@ mi máquina, generadas por el propio script.
 
 ---
 
-## 9. Contenido del repositorio
-
-```
-├── app.py, rag.py, indexar.py, pruebas.py, calibracion.py
-├── requirements.txt, .gitignore, .gitattributes
-├── datos/        4 PDF de la FIP + mundiales_padel_wikipedia.json
-├── pruebas/      resultados.md (salida real de pruebas.py)
-└── scrapers/     descarga de los PDF y scraping de Wikipedia
-```
 
