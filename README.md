@@ -245,8 +245,9 @@ el contexto literal: la verificación final la hace quien consulta.
 
 Usé **Claude Code** como asistente durante el desarrollo: para
 relevar qué documentos públicos sobre los Mundiales eran redistribuibles,
-escribir los scrapers y el código del pipeline a partir de los cuadernos que usamos
-a lo largo de la cursada, y redactar esta documentación.
+escribir los scrapers y el código del pipeline a partir en conjunto con 
+ejemplos de de los cuadernos que usamos
+a lo largo de la cursada.
 
 La definición del caso y del destinatario, la elección de los cinco documentos
 del corpus y la redacción de los siete casos de prueba fueron decisiones mías.
